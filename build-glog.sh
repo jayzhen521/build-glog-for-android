@@ -48,8 +48,11 @@ function build_glog {
       -DBUILD_TESTING=OFF \
       -DANDROID_STL="c++_static" \
       -Dgflags_DIR="../gflags/build/build_${ABI}" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${ABI}" \
       ../../
   make -j${N_JOBS}
+
+  make install
 
   cd ../
 }
